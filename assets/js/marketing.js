@@ -1,179 +1,180 @@
-// Инициализация графиков при загрузке страницы
+// Инициализация графиков и компонентов при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // График статистики кампаний
-    if(document.getElementById('campaignStats')) {
-        const campaignStatsOptions = {
-            series: [{
-                name: 'Открыто',
-                data: [44, 55, 57, 56, 61, 58]
-            }, {
-                name: 'Конверсия',
-                data: [76, 85, 101, 98, 87, 105]
-            }],
-            chart: {
-                type: 'bar',
-                height: 250,
-                toolbar: {
-                    show: false
-                }
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн'],
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val + "%"
-                    }
-                }
-            }
-        };
-        new ApexCharts(document.getElementById('campaignStats'), campaignStatsOptions).render();
-    }
+    initializeCharts();
+    initializeFormHandlers();
+    initializeTooltips();
+});
 
-    // График аналитики сегментов
-    if(document.getElementById('segmentAnalytics')) {
-        const segmentAnalyticsOptions = {
-            series: [44, 55, 13, 43],
-            chart: {
-                type: 'donut',
-                height: 250
-            },
-            labels: ['VIP клиенты', 'Активные', 'Новые', 'Другие'],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
+// Инициализация графиков
+function initializeCharts() {
+    // График статистики кампаний
+    const campaignStatsOptions = {
+        series: [{
+            name: 'Конверсия',
+            data: [45, 52, 38, 24, 33, 26, 21, 20]
+        }],
+        chart: {
+            height: 250,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            width: [3],
+            curve: 'straight',
+            dashArray: [0]
+        },
+        markers: {
+            size: 4
+        },
+        xaxis: {
+            categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг'],
+        },
+        yaxis: {
+            title: {
+                text: 'Процент конверсии'
+            }
+        },
+        tooltip: {
+            y: [{
+                title: {
+                    formatter: function (val) {
+                        return val + '%';
                     }
                 }
             }]
-        };
-        new ApexCharts(document.getElementById('segmentAnalytics'), segmentAnalyticsOptions).render();
-    }
+        },
+        grid: {
+            borderColor: '#f1f1f1'
+        }
+    };
 
     // График эффективности по каналам
-    if(document.getElementById('channelEffectiveness')) {
-        const channelEffectivenessOptions = {
-            series: [{
-                name: 'Email',
-                data: [45, 52, 38, 24, 33, 26, 21]
-            }, {
-                name: 'SMS',
-                data: [35, 41, 62, 42, 13, 18, 29]
-            }],
-            chart: {
-                height: 300,
-                type: 'line',
-                toolbar: {
-                    show: false
-                }
-            },
-            stroke: {
-                width: [4, 4]
-            },
-            xaxis: {
-                categories: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return val + "%"
-                    }
-                }
-            },
-            legend: {
-                position: 'top'
+    const channelEffectivenessOptions = {
+        series: [{
+            data: [45, 28, 33, 25]
+        }],
+        chart: {
+            type: 'bar',
+            height: 250
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 4,
+                horizontal: true,
             }
-        };
-        new ApexCharts(document.getElementById('channelEffectiveness'), channelEffectivenessOptions).render();
-    }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: ['Email', 'SMS', 'Push', 'Мессенджеры'],
+        },
+        colors: ['#4154f1']
+    };
 
     // График динамики конверсии
-    if(document.getElementById('conversionTrend')) {
-        const conversionTrendOptions = {
-            series: [{
-                name: 'Конверсия',
-                data: [31, 40, 28, 51, 42, 109, 100]
-            }],
-            chart: {
-                height: 300,
-                type: 'area',
-                toolbar: {
-                    show: false
-                }
+    const conversionTrendOptions = {
+        series: [{
+            name: 'Конверсия',
+            data: [31, 40, 28, 51, 42, 109, 100]
+        }],
+        chart: {
+            height: 250,
+            type: 'area'
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        xaxis: {
+            categories: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+        },
+        tooltip: {
+            x: {
+                format: 'dd/MM/yy HH:mm'
             },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: 'smooth'
-            },
-            xaxis: {
-                categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл']
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return val + "%"
-                    }
-                }
-            }
-        };
-        new ApexCharts(document.getElementById('conversionTrend'), conversionTrendOptions).render();
-    }
-});
+        },
+    };
 
-// Обработка форм
-document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация графиков если элементы существуют
+    if (document.querySelector('#campaignStats')) {
+        new ApexCharts(document.querySelector('#campaignStats'), campaignStatsOptions).render();
+    }
+    if (document.querySelector('#channelEffectiveness')) {
+        new ApexCharts(document.querySelector('#channelEffectiveness'), channelEffectivenessOptions).render();
+    }
+    if (document.querySelector('#conversionTrend')) {
+        new ApexCharts(document.querySelector('#conversionTrend'), conversionTrendOptions).render();
+    }
+}
+
+// Инициализация обработчиков форм
+function initializeFormHandlers() {
     // Форма создания кампании
-    const campaignForm = document.querySelector('#marketing-campaigns form');
-    if(campaignForm) {
+    const campaignForm = document.querySelector('form');
+    if (campaignForm) {
         campaignForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Здесь будет логика создания кампании
-            alert('Кампания создана успешно!');
+            const formData = new FormData(this);
+            // Здесь будет логика отправки данных на сервер
+            showNotification('success', 'Кампания успешно создана');
         });
     }
 
-    // Форма создания сегмента
-    const segmentForm = document.querySelector('#subscriber-segmentation form');
-    if(segmentForm) {
-        segmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Здесь будет логика создания сегмента
-            alert('Сегмент создан успешно!');
-        });
-    }
-
-    // Кнопка добавления критерия
-    const addCriteriaBtn = document.querySelector('.btn-outline-secondary');
-    if(addCriteriaBtn) {
+    // Добавление критерия сегментации
+    const addCriteriaBtn = document.querySelector('button[type="button"]');
+    if (addCriteriaBtn) {
         addCriteriaBtn.addEventListener('click', function() {
             const criteriaGroup = document.querySelector('.criteria-group');
-            const newCriteria = criteriaGroup.firstElementChild.cloneNode(true);
-            criteriaGroup.appendChild(newCriteria);
+            if (criteriaGroup) {
+                const newCriteria = criteriaGroup.cloneNode(true);
+                criteriaGroup.parentNode.insertBefore(newCriteria, this);
+            }
         });
     }
-});
+}
+
+// Инициализация тултипов
+function initializeTooltips() {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+}
+
+// Функция отображения уведомлений
+function showNotification(type, message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.role = 'alert';
+    alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+
+    // Добавляем уведомление в начало основного контента
+    const mainContent = document.querySelector('main');
+    if (mainContent) {
+        mainContent.insertBefore(alertDiv, mainContent.firstChild);
+        // Автоматическое скрытие через 5 секунд
+        setTimeout(() => {
+            alertDiv.remove();
+        }, 5000);
+    }
+}
+
+// Функция обновления статистики
+function updateStatistics() {
+    // Здесь будет логика получения актуальных данных с сервера
+    // и обновления графиков
+}
+
+// Автоматическое обновление статистики каждые 5 минут
+setInterval(updateStatistics, 300000);
