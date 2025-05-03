@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Контакты абонентов - Автоматизация для интернет-провайдеров</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+       <!-- Main CSS File -->
+       <link href="assets/css/main.css" rel="stylesheet">
+      </head>
+      <body>
+          <header id="header" class="header d-flex container align-items-center sticky-top">
+              <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+          
+                <a href="index.html" class="logo d-flex align-items-center">
+                  <img src="assets/img/logo.jpg" alt="">
+                </a>
+          
+                <nav id="navmenu" class="navmenu">
+                  <ul>
+                    <li><a href="integrations.html" >Интеграции</a></li>
+                    <li><a href="knowledge-base.html">База знаний</a></li>
+                    <li><a href="marketing.html">Маркетинг</a></li>
+                    <li><a href="notifications.html">Уведомления</a></li>
+                    <li><a href="reports.html">Отчеты</a></li>
+                    <li><a href="service-info.html">Инфо-услуги</a></li>
+                    <li><a href="support-history.html">История</a></li>
+                    <li><a href="tickets.html">Талон</a></li>
+                    <li><a href="equipment-info.html">Информация</a></li>
+                    <li><a href="contacts.html" class="active">Абоненты</a></li>
+                  </ul>
+                  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+          
+              </div>
+          </header>
+
+  <main id="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <div class="heading">
+          <h1>Контакты абонентов</h1>
+        </div>
+        <nav>
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li>Контакты абонентов</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts section">
+      <div class="container">
+        <!-- Search and Filters -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Поиск абонентов...">
+              <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-6 text-end">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addContactModal">
+              <i class="bi bi-person-plus me-2"></i>Добавить абонента
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Фильтры</h5>
+            <div class="row g-3">
+              <div class="col-md-3">
+                <select class="form-select" id="tariffFilter">
+                  <option value="">Тариф</option>
+                  <option value="basic">Базовый</option>
+                  <option value="standard">Стандарт</option>
+                  <option value="premium">Премиум</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="regionFilter">
+                  <option value="">Регион</option>
+                  <option value="moscow">Москва</option>
+                  <option value="spb">Санкт-Петербург</option>
+                  <option value="other">Другие регионы</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="serviceFilter">
+                  <option value="">Услуги</option>
+                  <option value="internet">Интернет</option>
+                  <option value="tv">Телевидение</option>
+                  <option value="phone">Телефония</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-select" id="statusFilter">
+                  <option value="">Статус</option>
+                  <option value="active">Активный</option>
+                  <option value="inactive">Неактивный</option>
+                  <option value="blocked">Заблокирован</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacts Table -->
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>ФИО</th>
+                    <th>Контакты</th>
+                    <th>Тариф</th>
+                    <th>Регион</th>
+                    <th>Услуги</th>
+                    <th>Статус</th>
+                    <th>Действия</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Иванов Иван Иванович</td>
+                    <td>
+                      <div>+7 (999) 123-45-67</div>
+                      <div>ivanov@example.com</div>
+                    </td>
+                    <td>Стандарт</td>
+                    <td>Москва</td>
+                    <td>Интернет, ТВ</td>
+                    <td><span class="badge bg-success">Активный</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#editContactModal">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Добавьте больше строк с примерами абонентов -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Следующая</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Contact Modal -->
+    <div class="modal fade" id="addContactModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Добавить абонента</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">Фамилия</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Имя</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Отчество</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Телефон</label>
+                  <input type="tel" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Тариф</label>
+                  <select class="form-select" required>
+                    <option value="">Выберите тариф</option>
+                    <option value="basic">Базовый</option>
+                    <option value="standard">Стандарт</option>
+                    <option value="premium">Премиум</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Регион</label>
+                  <select class="form-select" required>
+                    <option value="">Выберите регион</option>
+                    <option value="moscow">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <option value="other">Другие регионы</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Услуги</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="internet">
+                    <label class="form-check-label" for="internet">Интернет</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tv">
+                    <label class="form-check-label" for="tv">Телевидение</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="phone">
+                    <label class="form-check-label" for="phone">Телефония</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Адрес</label>
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="button" class="btn btn-primary">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Contact Modal -->
+    <div class="modal fade" id="editContactModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Редактировать абонента</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Форма редактирования (аналогична форме добавления) -->
+            <form>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">Фамилия</label>
+                  <input type="text" class="form-control" value="Иванов" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Имя</label>
+                  <input type="text" class="form-control" value="Иван" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Отчество</label>
+                  <input type="text" class="form-control" value="Иванович">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Телефон</label>
+                  <input type="tel" class="form-control" value="+7 (999) 123-45-67" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" value="ivanov@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Тариф</label>
+                  <select class="form-select" required>
+                    <option value="">Выберите тариф</option>
+                    <option value="basic">Базовый</option>
+                    <option value="standard" selected>Стандарт</option>
+                    <option value="premium">Премиум</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Регион</label>
+                  <select class="form-select" required>
+                    <option value="">Выберите регион</option>
+                    <option value="moscow" selected>Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <option value="other">Другие регионы</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Услуги</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="internetEdit" checked>
+                    <label class="form-check-label" for="internetEdit">Интернет</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="tvEdit" checked>
+                    <label class="form-check-label" for="tvEdit">Телевидение</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="phoneEdit">
+                    <label class="form-check-label" for="phoneEdit">Телефония</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Адрес</label>
+                  <textarea class="form-control" rows="3">г. Москва, ул. Примерная, д. 1, кв. 1</textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="button" class="btn btn-primary">Сохранить изменения</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-12 text-center">
+          <div class="copyright">
+            <p>&copy; <span>2024</span> <strong class="px-1">Автоматизация для интернет-провайдеров</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

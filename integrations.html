@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление интеграциями - Automation Service Provider</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+     <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header id="header" class="header d-flex container align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/logo.jpg" alt="">
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="integrations.html" class="active">Интеграции</a></li>
+              <li><a href="knowledge-base.html">База знаний</a></li>
+              <li><a href="marketing.html">Маркетинг</a></li>
+              <li><a href="notifications.html">Уведомления</a></li>
+              <li><a href="reports.html">Отчеты</a></li>
+              <li><a href="service-info.html">Инфо-услуги</a></li>
+              <li><a href="support-history.html">История</a></li>
+              <li><a href="tickets.html">Обращения</a></li>
+              <li><a href="equipment-info.html">Информация</a></li>
+              <li><a href="contacts.html">Абоненты</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="mb-4">Управление интеграциями</h2>
+
+            <!-- Уведомления -->
+            <div class="notifications-container mb-4"></div>
+
+            <!-- Журнал событий -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Журнал событий</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Время</th>
+                                            <th>Интеграция</th>
+                                            <th>Тип</th>
+                                            <th>Сообщение</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="eventLogTable">
+                                        <!-- Записи журнала будут добавляться динамически -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статистика интеграций -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Статистика интеграций</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Интеграция</th>
+                                            <th>Попытки подключения</th>
+                                            <th>Успешные</th>
+                                            <th>Ошибки</th>
+                                            <th>Последний успех</th>
+                                            <th>Время работы</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statisticsTable">
+                                        <!-- Статистика будет добавляться динамически -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статус интеграций -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Статус интеграций</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Сервис</th>
+                                            <th>Статус</th>
+                                            <th>Последняя синхронизация</th>
+                                            <th>Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Биллинговая система</td>
+                                            <td><span id="billingStatus" class="badge bg-danger">Неактивно</span></td>
+                                            <td id="billingLastSync">-</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#billingModal">
+                                                    <i class="bi bi-gear"></i> Настройки
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Система мониторинга</td>
+                                            <td><span id="monitoringStatus" class="badge bg-danger">Неактивно</span></td>
+                                            <td id="monitoringLastCheck">-</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#monitoringModal">
+                                                    <i class="bi bi-gear"></i> Настройки
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефония</td>
+                                            <td><span id="telephonyStatus" class="badge bg-danger">Неактивно</span></td>
+                                            <td id="telephonyLastCall">-</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#telephonyModal">
+                                                    <i class="bi bi-gear"></i> Настройки
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email и SMS сервисы</td>
+                                            <td><span id="notificationsStatus" class="badge bg-danger">Неактивно</span></td>
+                                            <td id="notificationsLastSent">-</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#notificationsModal">
+                                                    <i class="bi bi-gear"></i> Настройки
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Социальные сети</td>
+                                            <td><span id="socialStatus" class="badge bg-danger">Неактивно</span></td>
+                                            <td id="socialLastMessage">-</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#socialModal">
+                                                    <i class="bi bi-gear"></i> Настройки
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Модальные окна для настройки интеграций -->
+            <!-- Биллинг -->
+            <div class="modal fade" id="billingModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Настройка биллинговой системы</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="integration-config-form" data-integration="billing">
+                                <div class="mb-3">
+                                    <label class="form-label">API URL</label>
+                                    <input type="url" name="apiUrl" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">API Ключ</label>
+                                    <input type="password" name="apiKey" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Мониторинг -->
+            <div class="modal fade" id="monitoringModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Настройка системы мониторинга</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="integration-config-form" data-integration="monitoring">
+                                <div class="mb-3">
+                                    <label class="form-label">Сервер мониторинга</label>
+                                    <input type="url" name="serverUrl" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Токен доступа</label>
+                                    <input type="password" name="accessToken" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Интервал проверки (мин)</label>
+                                    <input type="number" name="checkInterval" class="form-control" value="5" min="1" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Телефония -->
+            <div class="modal fade" id="telephonyModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Настройка телефонии</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="integration-config-form" data-integration="telephony">
+                                <div class="mb-3">
+                                    <label class="form-label">SIP-сервер</label>
+                                    <input type="text" name="sipServer" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Логин</label>
+                                    <input type="text" name="username" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Пароль</label>
+                                    <input type="password" name="password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Уведомления -->
+            <div class="modal fade" id="notificationsModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Настройка уведомлений</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="integration-config-form" data-integration="notifications">
+                                <div class="mb-3">
+                                    <label class="form-label">SMTP-сервер</label>
+                                    <input type="text" name="smtpServer" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Пароль</label>
+                                    <input type="password" name="password" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">SMS API URL</label>
+                                    <input type="url" name="smsApiUrl" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">SMS API Ключ</label>
+                                    <input type="password" name="smsApiKey" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Социальные сети -->
+            <div class="modal fade" id="socialModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Настройка социальных сетей</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="integration-config-form" data-integration="social">
+                                <div class="mb-3">
+                                    <label class="form-label">VK API Ключ</label>
+                                    <input type="password" name="vkApiKey" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Telegram Bot Token</label>
+                                    <input type="password" name="telegramToken" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">WhatsApp Business API URL</label>
+                                    <input type="url" name="whatsappApiUrl" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">WhatsApp API Ключ</label>
+                                    <input type="password" name="whatsappApiKey" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/integrations.js"></script>
+</body>
+</html>

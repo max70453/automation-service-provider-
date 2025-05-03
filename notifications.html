@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Уведомления - Автоматизация для интернет-провайдеров</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+       <!-- Main CSS File -->
+       <link href="assets/css/main.css" rel="stylesheet">
+      </head>
+      <body>
+          <header id="header" class="header d-flex container align-items-center sticky-top">
+              <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+          
+                <a href="index.html" class="logo d-flex align-items-center">
+                  <img src="assets/img/logo.jpg" alt="">
+                </a>
+          
+                <nav id="navmenu" class="navmenu">
+                  <ul>
+                    <li><a href="integrations.html" >Интеграции</a></li>
+                    <li><a href="knowledge-base.html">База знаний</a></li>
+                    <li><a href="marketing.html">Маркетинг</a></li>
+                    <li><a href="notifications.html" class="active">Уведомления</a></li>
+                    <li><a href="reports.html">Отчеты</a></li>
+                    <li><a href="service-info.html">Инфо-услуги</a></li>
+                    <li><a href="support-history.html">История</a></li>
+                    <li><a href="tickets.html">Обращения</a></li>
+                    <li><a href="equipment-info.html">Информация</a></li>
+                    <li><a href="contacts.html">Абоненты</a></li>
+                  </ul>
+                  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+          
+              </div>
+          </header>
+
+  <main id="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <div class="heading">
+          <h1>Уведомления</h1>
+        </div>
+        <nav>
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li>Уведомления</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Notifications Section -->
+    <section id="notifications" class="notifications section">
+      <div class="container">
+        <!-- Notification Settings -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Настройки уведомлений</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                  <label class="form-check-label" for="emailNotifications">Email уведомления</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="smsNotifications" checked>
+                  <label class="form-check-label" for="smsNotifications">SMS уведомления</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="webNotifications">
+                  <label class="form-check-label" for="webNotifications">Веб-уведомления</label>
+                </div>
+                <div class="form-check form-switch mb-3">
+                  <input class="form-check-input" type="checkbox" id="pushNotifications">
+                  <label class="form-check-label" for="pushNotifications">Push-уведомления</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Filters -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="filters d-flex gap-2">
+            <select class="form-select">
+              <option value="all">Все уведомления</option>
+              <option value="maintenance">Плановые работы</option>
+              <option value="offers">Акции и предложения</option>
+              <option value="payment">Напоминания об оплате</option>
+              <option value="tariff">Изменения тарифа</option>
+              <option value="birthday">Поздравления</option>
+            </select>
+            <select class="form-select">
+              <option value="all">Все статусы</option>
+              <option value="unread">Непрочитанные</option>
+              <option value="read">Прочитанные</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notificationSettingsModal">
+            <i class="bi bi-gear me-2"></i>Настройки
+          </button>
+        </div>
+
+        <!-- Notifications List -->
+        <div class="notifications-list">
+          <!-- Maintenance Notification -->
+          <div class="card notification-card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-warning mb-2">Плановые работы</span>
+                  <h6 class="card-title">Плановые технические работы в вашем районе</h6>
+                  <p class="card-text">Уважаемый абонент, 25 марта с 02:00 до 06:00 будут проводиться плановые технические работы в вашем районе. Возможно временное отсутствие доступа к услугам.</p>
+                  <small class="text-muted">20 марта 2024, 10:00</small>
+                </div>
+                <div class="ms-3">
+                  <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-check2"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Offer Notification -->
+          <div class="card notification-card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-info mb-2">Акция</span>
+                  <h6 class="card-title">Специальное предложение для вас</h6>
+                  <p class="card-text">Увеличьте скорость интернета в 2 раза без изменения абонентской платы! Предложение действует до конца месяца.</p>
+                  <small class="text-muted">19 марта 2024, 15:30</small>
+                </div>
+                <div class="ms-3">
+                  <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-check2"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Reminder Notification -->
+          <div class="card notification-card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-danger mb-2">Оплата</span>
+                  <h6 class="card-title">Напоминание об оплате</h6>
+                  <p class="card-text">Напоминаем о необходимости внесения ежемесячной платы за услуги. Текущий баланс: 250 руб.</p>
+                  <small class="text-muted">18 марта 2024, 09:00</small>
+                </div>
+                <div class="ms-3">
+                  <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-check2"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tariff Change Notification -->
+          <div class="card notification-card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-primary mb-2">Тариф</span>
+                  <h6 class="card-title">Изменение тарифного плана</h6>
+                  <p class="card-text">С 1 апреля 2024 года ваш тарифный план будет обновлен. Подробности в личном кабинете.</p>
+                  <small class="text-muted">17 марта 2024, 12:00</small>
+                </div>
+                <div class="ms-3">
+                  <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-check2"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Birthday Notification -->
+          <div class="card notification-card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-success mb-2">Поздравление</span>
+                  <h6 class="card-title">С Днем Рождения!</h6>
+                  <p class="card-text">Поздравляем вас с днем рождения! В подарок мы начислили вам 500 бонусных баллов.</p>
+                  <small class="text-muted">15 марта 2024, 08:00</small>
+                </div>
+                <div class="ms-3">
+                  <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-check2"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Settings Modal -->
+        <div class="modal fade" id="notificationSettingsModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Настройки уведомлений</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <h6 class="mb-3">Типы уведомлений</h6>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="maintenanceNotif" checked>
+                  <label class="form-check-label" for="maintenanceNotif">Плановые работы</label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="offersNotif" checked>
+                  <label class="form-check-label" for="offersNotif">Акции и предложения</label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="paymentNotif" checked>
+                  <label class="form-check-label" for="paymentNotif">Напоминания об оплате</label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="tariffNotif" checked>
+                  <label class="form-check-label" for="tariffNotif">Изменения тарифа</label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="birthdayNotif" checked>
+                  <label class="form-check-label" for="birthdayNotif">Поздравления</label>
+                </div>
+
+                <h6 class="mb-3 mt-4">Способы уведомлений</h6>
+                <div class="mb-3">
+                  <label class="form-label">Email для уведомлений</label>
+                  <input type="email" class="form-control" value="user@example.com">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Телефон для SMS</label>
+                  <input type="tel" class="form-control" value="+7 (999) 123-45-67">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary">Сохранить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-12 text-center">
+          <div class="copyright">
+            <p>&copy; <span>2024</span> <strong class="px-1">Автоматизация для интернет-провайдеров</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

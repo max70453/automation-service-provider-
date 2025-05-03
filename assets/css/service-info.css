@@ -1,0 +1,230 @@
+:root {
+  --status-active: #28a745;
+  --status-blocked: #dc3545;
+  --status-disabled: #6c757d;
+}
+
+/* Service Info Section Styles */
+.service-info .card {
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-info .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Plan Card Styles */
+.plan-details .plan-name {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.plan-details .plan-speed,
+.plan-details .plan-price {
+  font-size: 1.1rem;
+  color: var(--default-color);
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-indicator.active {
+  background-color: var(--status-active);
+}
+
+.status-indicator.blocked {
+  background-color: var(--status-blocked);
+}
+
+.status-indicator.disabled {
+  background-color: var(--status-disabled);
+}
+
+/* Service Cards Styles */
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--surface-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.service-card .service-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 10px;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.service-card .service-info h5 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.service-card .service-info p {
+  margin: 0 0 5px;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.service-card .service-status {
+  font-size: 0.85rem;
+  color: var(--status-active);
+  font-weight: 500;
+}
+
+/* History Table Styles */
+.table {
+  margin: 0;
+}
+
+.table th {
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+  border-bottom: none;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 30px;
+}
+
+/* Financial Info Styles */
+.balance-card {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 15px 0;
+}
+
+.balance-status {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.balance-status.positive {
+  background-color: color-mix(in srgb, var(--status-active), transparent 90%);
+  color: var(--status-active);
+}
+
+.balance-status.negative {
+  background-color: color-mix(in srgb, var(--status-blocked), transparent 90%);
+  color: var(--status-blocked);
+}
+
+/* Payment History Styles */
+.payment-history {
+  margin-top: 30px;
+}
+
+.payment-history .table th {
+  color: var(--default-color);
+  font-size: 0.9rem;
+}
+
+.payment-history .table td {
+  font-size: 0.9rem;
+  padding: 12px;
+}
+
+.payment-amount {
+  font-weight: 600;
+}
+
+.payment-amount.income {
+  color: var(--status-active);
+}
+
+.payment-amount.expense {
+  color: var(--status-blocked);
+}
+
+/* Auto Payment Settings */
+.autopay-settings {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.autopay-settings .form-label {
+  font-weight: 500;
+  color: var(--default-color);
+  margin-bottom: 8px;
+}
+
+.autopay-settings .form-control {
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.autopay-settings .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.payment-method-card {
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-method-card:hover {
+  border-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 98%);
+}
+
+.payment-method-card.selected {
+  border-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .service-card .service-icon {
+    margin: 0 auto;
+  }
+}

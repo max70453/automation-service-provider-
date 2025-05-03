@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Маркетинг - Автоматизация для интернет-провайдеров</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/apexcharts/apexcharts.css" rel="stylesheet">
+
+     <!-- Main CSS File -->
+     <link href="assets/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+      <header id="header" class="header d-flex container align-items-center sticky-top">
+          <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/logo.jpg" alt="">
+            </a>
+      
+            <nav id="navmenu" class="navmenu">
+              <ul>
+                <li><a href="integrations.html">Интеграции</a></li>
+                <li><a href="knowledge-base.html">База знаний</a></li>
+                <li><a href="marketing.html" class="active">Маркетинг</a></li>
+                <li><a href="notifications.html">Уведомления</a></li>
+                <li><a href="reports.html">Отчеты</a></li>
+                <li><a href="service-info.html">Инфо-услуги</a></li>
+                <li><a href="support-history.html">История</a></li>
+                <li><a href="tickets.html">Обращения</a></li>
+                <li><a href="equipment-info.html">Информация</a></li>
+                <li><a href="contacts.html">Абоненты</a></li>
+              </ul>
+              <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+      
+          </div>
+      </header>
+
+  <main id="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container">
+        <div class="heading">
+          <h1>Маркетинг</h1>
+        </div>
+        <nav>
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li>Маркетинг</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Marketing Campaigns Section -->
+    <section id="marketing-campaigns" class="section">
+      <div class="container">
+        <div class="row">
+          <!-- Campaign Creation -->
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Создание маркетинговой кампании</h5>
+                <form>
+                  <div class="mb-3">
+                    <label for="campaignName" class="form-label">Название кампании</label>
+                    <input type="text" class="form-control" id="campaignName" required>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label class="form-label">Тип рассылки</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="email" id="emailCheck">
+                      <label class="form-check-label" for="emailCheck">Email рассылка</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="sms" id="smsCheck">
+                      <label class="form-check-label" for="smsCheck">SMS рассылка</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="segmentSelect" class="form-label">Сегмент абонентов</label>
+                    <select class="form-select" id="segmentSelect" required>
+                      <option value="">Выберите сегмент</option>
+                      <option value="all">Все абоненты</option>
+                      <option value="active">Активные абоненты</option>
+                      <option value="inactive">Неактивные абоненты</option>
+                      <option value="vip">VIP клиенты</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="messageContent" class="form-label">Текст сообщения</label>
+                    <textarea class="form-control" id="messageContent" rows="4" required></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="scheduledDate" class="form-label">Дата отправки</label>
+                    <input type="datetime-local" class="form-control" id="scheduledDate" required>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Создать кампанию</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campaign Statistics -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Статистика кампаний</h5>
+                <div id="campaignStats"></div>
+                <div class="mt-4">
+                  <h6>Последние кампании</h6>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Новогодняя акция
+                      <span class="badge bg-success rounded-pill">Активна</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Летние скидки
+                      <span class="badge bg-secondary rounded-pill">Завершена</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscriber Segmentation Section -->
+    <section id="subscriber-segmentation" class="section">
+      <div class="container">
+        <div class="row">
+          <!-- Segment Creation -->
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Создание сегмента</h5>
+                <form>
+                  <div class="mb-3">
+                    <label for="segmentName" class="form-label">Название сегмента</label>
+                    <input type="text" class="form-control" id="segmentName" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Критерии сегментации</label>
+                    <div class="criteria-group">
+                      <div class="mb-2">
+                        <select class="form-select">
+                          <option value="tariff">Тарифный план</option>
+                          <option value="activity">Активность</option>
+                          <option value="payment">Платежи</option>
+                          <option value="location">Местоположение</option>
+                        </select>
+                      </div>
+                      <div class="mb-2">
+                        <select class="form-select">
+                          <option value="equals">Равно</option>
+                          <option value="not_equals">Не равно</option>
+                          <option value="greater">Больше</option>
+                          <option value="less">Меньше</option>
+                        </select>
+                      </div>
+                      <div class="mb-2">
+                        <input type="text" class="form-control" placeholder="Значение">
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">+ Добавить критерий</button>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Создать сегмент</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segment Analytics -->
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Аналитика сегментов</h5>
+                <div id="segmentAnalytics"></div>
+                <div class="mt-4">
+                  <h6>Активные сегменты</h6>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Сегмент</th>
+                          <th>Абонентов</th>
+                          <th>Конверсия</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>VIP клиенты</td>
+                          <td>250</td>
+                          <td>35%</td>
+                        </tr>
+                        <tr>
+                          <td>Новые абоненты</td>
+                          <td>180</td>
+                          <td>28%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campaign Analytics Section -->
+    <section id="campaign-analytics" class="section">
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Аналитика эффективности</h5>
+            <div class="row">
+              <div class="col-md-3 mb-4">
+                <div class="card bg-light">
+                  <div class="card-body text-center">
+                    <h6>Открываемость писем</h6>
+                    <h2 class="mb-0">45%</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                <div class="card bg-light">
+                  <div class="card-body text-center">
+                    <h6>Конверсия SMS</h6>
+                    <h2 class="mb-0">28%</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                <div class="card bg-light">
+                  <div class="card-body text-center">
+                    <h6>Отписки</h6>
+                    <h2 class="mb-0">2.5%</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                <div class="card bg-light">
+                  <div class="card-body text-center">
+                    <h6>ROI</h6>
+                    <h2 class="mb-0">215%</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h6>Эффективность по каналам</h6>
+                <div id="channelEffectiveness"></div>
+              </div>
+              <div class="col-md-6">
+                <h6>Динамика конверсии</h6>
+                <div id="conversionTrend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-12 text-center">
+          <div class="copyright">
+            <p>&copy; <span>2024</span> <strong class="px-1">Автоматизация для интернет-провайдеров</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Marketing Module JS -->
+  <script src="assets/js/marketing.js"></script>
+
+</body>
+
+</html>

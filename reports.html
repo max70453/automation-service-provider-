@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчетность и аналитика - Automation Service Provider</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+     <!-- Main CSS File -->
+     <link href="assets/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header" class="header d-flex container align-items-center sticky-top">
+            <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+        
+              <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/logo.jpg" alt="">
+              </a>
+        
+              <nav id="navmenu" class="navmenu">
+                <ul>
+                  <li><a href="integrations.html" >Интеграции</a></li>
+                  <li><a href="knowledge-base.html">База знаний</a></li>
+                  <li><a href="marketing.html">Маркетинг</a></li>
+                  <li><a href="notifications.html">Уведомления</a></li>
+                  <li><a href="reports.html" class="active">Отчеты</a></li>
+                  <li><a href="service-info.html">Инфо-услуги</a></li>
+                  <li><a href="support-history.html">История</a></li>
+                  <li><a href="tickets.html">Обращения</a></li>
+                  <li><a href="equipment-info.html">Информация</a></li>
+                  <li><a href="contacts.html">Абоненты</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+              </nav>
+        
+            </div>
+        </header>
+
+    <!-- Reports Section -->
+    <section id="reports" class="section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2>Отчетность и аналитика</h2>
+                </div>
+            </div>
+
+            <!-- Report Generation Form -->
+            <div class="row mb-4">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Генерация отчета</h5>
+                            <form id="reportForm">
+                                <div class="mb-3">
+                                    <label for="reportType" class="form-label">Тип отчета</label>
+                                    <select class="form-select" id="reportType" required>
+                                        <option value="">Выберите тип отчета</option>
+                                        <option value="tickets">Обращения</option>
+                                        <option value="finance">Финансы</option>
+                                        <option value="marketing">Маркетинг</option>
+                                        <option value="service">Качество обслуживания</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="dateRange" class="form-label">Период</label>
+                                    <select class="form-select" id="dateRange" required>
+                                        <option value="week">Неделя</option>
+                                        <option value="month">Месяц</option>
+                                        <option value="quarter">Квартал</option>
+                                        <option value="year">Год</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Сформировать отчет</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Всего обращений</h6>
+                                    <h2 class="mb-0">1,234</h2>
+                                    <small class="text-success">+15% к прошлому периоду</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Средняя оценка</h6>
+                                    <h2 class="mb-0">4.8</h2>
+                                    <small class="text-success">+0.3 к прошлому периоду</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6>Выручка</h6>
+                                    <h2 class="mb-0">₽2.5M</h2>
+                                    <small class="text-success">+25% к прошлому периоду</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Charts -->
+            <div class="row">
+                <!-- Service Quality Trends -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Динамика качества обслуживания</h5>
+                            <div id="serviceQualityChart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problem Areas Analysis -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Анализ проблемных зон</h5>
+                            <div id="problemAreasChart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Analysis -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Анализ выручки</h5>
+                            <div id="revenueChart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Satisfaction -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Удовлетворенность клиентов</h5>
+                            <div id="satisfactionChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/js/reports.js"></script>
+</body>
+</html>
