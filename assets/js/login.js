@@ -75,7 +75,7 @@ async function handleLogin(event) {
             handleRememberMe();
             showNotification('Вход выполнен успешно!');
             setTimeout(() => {
-                window.location.href = 'automation-service-provider-/integrations.html';
+                window.location.href = '/integrations.html';
             }, 1500);
         } else {
             const data = await response.json();
