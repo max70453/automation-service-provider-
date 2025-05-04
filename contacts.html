@@ -36,15 +36,12 @@
           
                 <nav id="navmenu" class="navmenu">
                   <ul>
-                    <li><a href="integrations.html" >Интеграции</a></li>
-                    <li><a href="knowledge-base.html">База знаний</a></li>
-                    <li><a href="marketing.html">Маркетинг</a></li>
+                    <li><a href="marketing.html">Рассылка</a></li>
                     <li><a href="notifications.html">Уведомления</a></li>
-                    <li><a href="reports.html">Отчеты</a></li>
+                    <li><a href="reports.html">Аналитика</a></li>
                     <li><a href="service-info.html">Инфо-услуги</a></li>
-                    <li><a href="support-history.html">История</a></li>
                     <li><a href="tickets.html">Талон</a></li>
-                    <li><a href="equipment-info.html">Информация</a></li>
+                    <li><a href="equipment-info.html">Оборудование</a></li>
                     <li><a href="contacts.html" class="active">Абоненты</a></li>
                   </ul>
                   <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -80,11 +77,6 @@
               <button class="btn btn-primary"><i class="bi bi-search"></i></button>
             </div>
           </div>
-          <div class="col-md-6 text-end">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addContactModal">
-              <i class="bi bi-person-plus me-2"></i>Добавить абонента
-            </button>
-          </div>
         </div>
 
         <!-- Filters -->
@@ -103,9 +95,11 @@
               <div class="col-md-3">
                 <select class="form-select" id="regionFilter">
                   <option value="">Регион</option>
-                  <option value="moscow">Москва</option>
-                  <option value="spb">Санкт-Петербург</option>
-                  <option value="other">Другие регионы</option>
+                  <option value="moscow">Донецк</option>
+                  <option value="spb">Мариуполь</option>
+                  <option value="other">Макеевка</option>
+                  <option value="other">Докучаевск</option>
+                  <option value="other">Дебальцево</option>
                 </select>
               </div>
               <div class="col-md-3">
@@ -136,37 +130,87 @@
                 <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Номер договора</th>
                     <th>ФИО</th>
                     <th>Контакты</th>
                     <th>Тариф</th>
                     <th>Регион</th>
                     <th>Услуги</th>
                     <th>Статус</th>
-                    <th>Действия</th>
+                    <th>Дата подключения</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
+                    <td>ДНР-2024-001</td>
                     <td>Иванов Иван Иванович</td>
                     <td>
                       <div>+7 (999) 123-45-67</div>
                       <div>ivanov@example.com</div>
                     </td>
                     <td>Стандарт</td>
-                    <td>Москва</td>
+                    <td>Донецк</td>
                     <td>Интернет, ТВ</td>
                     <td><span class="badge bg-success">Активный</span></td>
-                    <td>
-                      <button class="btn btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#editContactModal">
-                        <i class="bi bi-pencil"></i>
-                      </button>
-                      <button class="btn btn-sm btn-danger">
-                        <i class="bi bi-trash"></i>
-                      </button>
-                    </td>
+                    <td>20.01.2020</td>
                   </tr>
-                  <!-- Добавьте больше строк с примерами абонентов -->
+                  <tr>
+                    <td>2</td>
+                    <td>МРП-2024-002</td>
+                    <td>Петрова Анна Сергеевна</td>
+                    <td>
+                      <div>+7 (999) 234-56-78</div>
+                      <div>petrova@example.com</div>
+                    </td>
+                    <td>Премиум</td>
+                    <td>Мариуполь</td>
+                    <td>Интернет, ТВ, Телефония</td>
+                    <td><span class="badge bg-success">Активный</span></td>
+                    <td>2.10.2015</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>МКВ-2024-003</td>
+                    <td>Сидоров Павел Андреевич</td>
+                    <td>
+                      <div>+7 (999) 345-67-89</div>
+                      <div>sidorov@example.com</div>
+                    </td>
+                    <td>Базовый</td>
+                    <td>Макеевка</td>
+                    <td>Интернет</td>
+                    <td><span class="badge bg-warning text-dark">Неактивный</span></td>
+                    <td>25.05.2012</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>ДКЧ-2024-004</td>
+                    <td>Козлова Мария Дмитриевна</td>
+                    <td>
+                      <div>+7 (999) 456-78-90</div>
+                      <div>kozlova@example.com</div>
+                    </td>
+                    <td>Стандарт</td>
+                    <td>Докучаевск</td>
+                    <td>Интернет, Телефония</td>
+                    <td><span class="badge bg-danger">Заблокирован</span></td>
+                    <td>14.08.2025</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>ДНР-2024-005</td>
+                    <td>Новиков Артем Владимирович</td>
+                    <td>
+                      <div>+7 (999) 567-89-01</div>
+                      <div>novikov@example.com</div>
+                    </td>
+                    <td>Премиум</td>
+                    <td>Донецк</td>
+                    <td>Интернет, ТВ, Телефония</td>
+                    <td><span class="badge bg-success">Активный</span></td>
+                    <td>16.11.2011</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -201,6 +245,10 @@
           <div class="modal-body">
             <form>
               <div class="row g-3">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Номер договора</label>
+                  <input type="text" class="form-control" required pattern="[А-Я]{3}-\d{4}-\d{3}" title="Формат: XXX-YYYY-NNN, где X - буквы, Y - год, N - номер">
+                </div>
                 <div class="col-md-4">
                   <label class="form-label">Фамилия</label>
                   <input type="text" class="form-control" required>
@@ -281,6 +329,10 @@
             <!-- Форма редактирования (аналогична форме добавления) -->
             <form>
               <div class="row g-3">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Номер договора</label>
+                  <input type="text" class="form-control" value="ДНР-2024-001" required pattern="[А-Я]{3}-\d{4}-\d{3}" title="Формат: XXX-YYYY-NNN, где X - буквы, Y - год, N - номер">
+                </div>
                 <div class="col-md-4">
                   <label class="form-label">Фамилия</label>
                   <input type="text" class="form-control" value="Иванов" required>
